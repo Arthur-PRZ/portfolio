@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0C0F14;
-  --surface:#141922;
-  --wall:#232B38;
-  --line:#242C38;
-  --text:#E7EAF0;
-  --muted:#8F99A9;
-  --accent:#8CA6FF;
+  --bg:#F4F6F9;
+  --surface:#E8ECF1;
+  --wall:#C3CBD6;
+  --line:#D3D9E1;
+  --text:#11151C;
+  --muted:#566172;
+  --accent:#2547E8;
   --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
 }
@@ -26,9 +26,9 @@ body{
   font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--text);
   background-color:var(--bg);
   background-image:
-    radial-gradient(900px 600px at 85% -5%,rgba(140,166,255,.12),transparent 60%),
-    radial-gradient(800px 600px at -10% 45%,rgba(140,166,255,.06),transparent 60%),
-    linear-gradient(180deg,#0E121A 0%,#0A0D12 100%);
+    radial-gradient(900px 600px at 85% -5%,rgba(37,71,232,.08),transparent 60%),
+    radial-gradient(800px 600px at -10% 45%,rgba(37,71,232,.04),transparent 60%),
+    linear-gradient(180deg,#F8F9FC 0%,#EBEFF4 100%);
   background-attachment:fixed;
 }
 a{color:inherit}
@@ -36,7 +36,7 @@ a{color:inherit}
 
 /* Top bar */
 .top{
-  position:sticky;top:0;z-index:10;background:rgba(12,15,20,.92);
+  position:sticky;top:0;z-index:10;background:rgba(244,246,249,.92);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
@@ -62,10 +62,10 @@ h1{font-weight:800;font-size:clamp(2.8rem,7.5vw,6rem);max-width:13ch;margin-bott
 .lead{font-size:1.25rem;max-width:34em;margin-bottom:16px}
 .intro p{max-width:34em;color:var(--muted);margin-bottom:16px}
 .cta{
-  display:inline-block;margin-top:16px;padding:12px 22px;background:var(--accent);color:#0C0F14;
+  display:inline-block;margin-top:16px;padding:12px 22px;background:var(--accent);color:#fff;
   text-decoration:none;font-weight:600;border-radius:2px;
 }
-.cta:hover{background:#fff}
+.cta:hover{background:var(--text)}
 
 h2{font-weight:800;font-size:clamp(1.9rem,3.5vw,2.6rem);margin-bottom:32px}
 
@@ -92,7 +92,7 @@ h2{font-weight:800;font-size:clamp(1.9rem,3.5vw,2.6rem);margin-bottom:32px}
 .facts dd{font-weight:500}
 .actions{display:flex;flex-wrap:wrap;gap:22px}
 .actions a{font-weight:600;color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
-.actions a:hover{color:#fff}
+.actions a:hover{color:var(--text)}
 .note{display:inline-block;font-size:.85rem;font-weight:600;padding:2px 8px;border:1px solid var(--accent);color:var(--accent);margin-bottom:12px}
 
 footer{border-top:1px solid var(--line);margin-top:40px;padding:32px 0 64px;color:var(--muted)}
