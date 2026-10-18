@@ -114,6 +114,20 @@ footer .contact{display:flex;flex-wrap:wrap;gap:24px;margin-top:12px}
 .project{align-items:center}
 .cover.auto{aspect-ratio:auto;background:none}
 .cover.auto img{position:static;display:block;width:100%;height:auto;object-fit:initial}
+.actions button{font:inherit;font-weight:600;color:var(--accent);background:none;border:0;cursor:pointer;padding:0;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.actions button:hover{color:var(--text)}
+dialog{width:min(860px,calc(100% - 32px));max-height:88vh;margin:auto;padding:0;border:1px solid var(--line);background:var(--bg);color:var(--text);overflow:auto}
+dialog::backdrop{background:rgba(17,21,28,.6)}
+.dialog-body{position:relative;padding:32px}
+.dialog-body h2{font-size:1.8rem;margin:0 40px 16px 0}
+.dialog-body .intro-text{color:var(--muted);margin-bottom:24px}
+.dialog-body .close{position:absolute;top:12px;right:16px;font:inherit;font-size:2rem;line-height:1;background:none;border:0;cursor:pointer;color:var(--muted)}
+.dialog-body .close:hover{color:var(--text)}
+.feature{padding:24px 0;border-top:1px solid var(--line)}
+.feature img{display:block;width:100%;height:auto;border:1px solid var(--line);margin-bottom:16px}
+.feature h3{font-size:1.3rem;margin-bottom:8px}
+.feature p{color:var(--muted)}
+body:has(dialog[open]){overflow:hidden}
 </style>
 </head>
 <body>
@@ -192,8 +206,8 @@ footer .contact{display:flex;flex-wrap:wrap;gap:24px;margin-top:12px}
           <div><dt>Learned</dt><dd>The basics, Components, Enhanced Input, Collision and traces, Debugging</dd></div>
         </dl>
         <div class="actions">
-          <a href="https://github.com/arthur-prz/actionroguelike">Code</a>
-          <a href="https://www.youtube.com/">Video</a>
+          <a href="https://github.com/arthur-prz/ActionRoguelike-Course">Code</a>
+          <button type="button" data-dialog="action-roguelike">Features &amp; code</button>
         </div>
       </div>
     </article>
@@ -272,6 +286,28 @@ footer .contact{display:flex;flex-wrap:wrap;gap:24px;margin-top:12px}
   </div>
 </footer>
 
+<dialog id="action-roguelike" aria-labelledby="ar-title">
+  <div class="dialog-body">
+    <button type="button" class="close" data-close aria-label="Close">×</button>
+    <h2 id="ar-title">Action Roguelike: features and code</h2>
+    <p class="intro-text">Short sentence explaining the project and how the code is organized.</p>
+
+    <div class="feature">
+      <img src="https://raw.githubusercontent.com/arthur-prz/ActionRoguelike-Course/main/gifs/attack.gif" alt="Attack system in action" loading="lazy">
+      <h3>Attack system</h3>
+      <p>What it does, how you built it (components, input, traces...), and what you learned.</p>
+    </div>
+
+    <div class="feature">
+      <img src="https://raw.githubusercontent.com/arthur-prz/ActionRoguelike-Course/main/gifs/interaction.gif" alt="Interaction system in action" loading="lazy">
+      <h3>Interaction system</h3>
+      <p>Explanation of this feature.</p>
+    </div>
+
+    <p><a href="https://github.com/arthur-prz/ActionRoguelike-Course">See the full code on GitHub</a></p>
+  </div>
+</dialog>
+  
 <script>
 /* Draws a small tilemap level in each .cover that only contains a canvas. */
 (function(){
@@ -340,7 +376,15 @@ footer .contact{display:flex;flex-wrap:wrap;gap:24px;margin-top:12px}
   window.addEventListener('scroll',update,{passive:true});
   window.addEventListener('resize',update);
   update();
-})();
+
+  document.querySelectorAll('[data-dialog]').forEach(function(b){
+  b.addEventListener('click',function(){document.getElementById(b.dataset.dialog).showModal()});
+});
+  document.querySelectorAll('dialog').forEach(function(d){
+    d.addEventListener('click',function(e){if(e.target===d)d.close()});
+    d.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click',function(){d.close()})});
+  });
+  })();
 </script>
 </body>
 </html>
