@@ -130,6 +130,10 @@ dialog::backdrop{background:rgba(17,21,28,.6)}
 .feature h3{font-size:1.3rem;margin-bottom:8px}
 .feature p{color:var(--muted)}
 body:has(dialog[open]){overflow:hidden}
+.feature .gif-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0 0}
+.feature .gif-row figure{margin:0}
+.feature .gif-row img{margin:0}
+.feature .gif-row figcaption{font-size:.85rem;color:var(--muted);margin-top:6px}
 </style>
 </head>
 <body>
@@ -229,7 +233,7 @@ body:has(dialog[open]){overflow:hidden}
         </dl>
         <div class="actions">
           <a href="https://jungor.itch.io/ginpc">Play</a>
-          <a href="https://github.com/arthur-prz/game-2">Code</a>
+          <button type="button" data-dialog="gasoline">Gameplay</button>
         </div>
       </div>
     </article>
@@ -321,6 +325,45 @@ body:has(dialog[open]){overflow:hidden}
   </div>
 </dialog>
   
+<dialog id="gasoline" aria-labelledby="gas-title">
+  <div class="dialog-body">
+    <button type="button" class="close" data-close aria-label="Close">×</button>
+    <h2 id="gas-title">Gasoline in my Piña Colada: gameplay</h2>
+    <p class="intro-text">A 2D bartender simulation made in 14 days by a team of 5 for Comfy Jam: Summer. The goal is to find the 3 different endings.</p>
+
+    <div class="feature">
+      <div class="gif-row">
+        <figure>
+          <img src="gifs/Blender" alt="Blender" loading="lazy">
+          <figcaption>Preparing drink</figcaption>
+        </figure>
+        <figure>
+          <img src="gifs/Shaker" alt="Shaker" loading="lazy">
+          <figcaption>Preparing drink</figcaption>
+        </figure>
+        <figure>
+          <img src="gifs/Bin" alt="Bin" loading="lazy">
+          <figcaption>throw away drink</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="feature">
+      <h3>Serv the clients</h3>
+      <p>Serv the clients before their patients run out. .</p>
+      <img src="gifs/Serv" alt="Scene and interactive objects" loading="lazy">
+    </div>
+
+    <div class="feature">
+      <h3>Becarful of the manager</h3>
+      <p>D'ont take the gasoline when the manager is watching</p>
+      <img src="gifs/Gasoline.gif" alt="Endings" loading="lazy">
+    </div>
+
+    <p><a href="https://jungor.itch.io/ginpc">Play the game on itch.io</a></p>
+  </div>
+</dialog>
+
 <script>
 /* Draws a small tilemap level in each .cover that only contains a canvas. */
 (function(){
