@@ -273,7 +273,9 @@ body:has(dialog[open]){overflow:hidden}
           <div><dt>My role</dt><dd>Everything: rendering, input, gameplay, map validation</dd></div>
         </dl>
         <div class="actions">
-          <a href="https://github.com/arthur-prz/so_long">Code</a>
+          <div class="actions">
+            <button type="button" data-dialog="so-long">Details</button>
+          </div>
         </div>
       </div>
     </article>
@@ -370,6 +372,32 @@ body:has(dialog[open]){overflow:hidden}
   </div>
 </dialog>
 
+  <dialog id="so-long" aria-labelledby="sl-title">
+  <div class="dialog-body">
+    <button type="button" class="close" data-close aria-label="Close">×</button>
+    <h2 id="sl-title">So_long: details</h2>
+    <p class="intro-text">A small 2D game written in C with MiniLibX for the 42 curriculum. The player crosses a map, collects every item, then reaches the exit.</p>
+
+    <div class="feature">
+      <h3>Map parsing and validation</h3>
+     <p>The map is read from a <code>.ber</code> file. Before the game starts, the program checks that the map is rectangular, surrounded by walls and made of valid characters. It also checks that a valid path exists to every item and to the exit.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Rendering and game loop</h3>
+      <p>The window and the sprites are drawn with <strong>MiniLibX</strong>. Keyboard events move the player, the items are collected, and the move counter is updated at every step.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Memory management</h3>
+      <p>Everything allocated is freed, including when the player quits or when the map is invalid. I checked it with <code>Valgrind</code>.</p>
+      <img src="https://raw.githubusercontent.com/arthur-prz/SoLong-42/main/asset/preview.png" alt="Screenshot of So_long" loading="lazy">
+    </div>
+
+    <p><a href="https://github.com/arthur-prz/SoLong-42">See the full code on GitHub</a></p>
+  </div>
+</dialog>
+  
 <script>
 /* Draws a small tilemap level in each .cover that only contains a canvas. */
 (function(){
